@@ -1,0 +1,40 @@
+:root {
+  /* warm, kid-friendly; swap after ui pass */
+  --bg: #fffbeb;
+  --surface: #ffffff;
+  --ink: #292524;
+  --muted: #78716c;
+  --accent: #f59e0b;
+  --accent-ink: #78350f;
+  --correct: #16a34a;
+  --wrong: #dc2626;
+
+  font-family: "Baloo 2", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  /* safe-area for notched phones */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.app {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+button {
+  font: inherit;
+  touch-action: manipulation; /* no double-tap zoom */
+  min-height: 44px; /* touch target */
+}

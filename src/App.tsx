@@ -41,14 +41,6 @@ export default function App() {
     storage.save(p);
   }, []);
 
-  const startSession = useCallback(() => {
-    const today = todayString(Date.now());
-    persist(updateStreak(profile, today));
-    setCount(0);
-    setCorrectCount(0);
-    nextQ(true);
-  }, [profile, persist]);
-
   const nextQ = useCallback(
     (first = false) => {
       const result = nextQuestion(profile, SKILLS, Math.random, first, SEED_BANK);
@@ -60,6 +52,14 @@ export default function App() {
     },
     [profile],
   );
+
+  const startSession = useCallback(() => {
+    const today = todayString(Date.now());
+    persist(updateStreak(profile, today));
+    setCount(0);
+    setCorrectCount(0);
+    nextQ(true);
+  }, [profile, persist, nextQ]);
 
   const submit = useCallback(
     (value: string) => {

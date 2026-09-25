@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/katsugtgz/mathgame/compare/v1.1.0...v1.1.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* TenFrame destructure index wrong, visual never rendered ([7360cfa](https://github.com/katsugtgz/mathgame/commit/7360cfa1234de6412c30283a5688dac91424b78b))
+
 ## [1.1.0](https://github.com/katsugtgz/mathgame/compare/v1.0.0...v1.1.0) (2026-09-25)
 
 

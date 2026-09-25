@@ -32,6 +32,7 @@ export default defineConfig({
   ],
   test: {
     environment: "node",
+    environmentMatchGlobs: [["src/components/**", "jsdom"]],
     exclude: ["e2e/**", "node_modules/**"],
     coverage: {
       provider: "v8",

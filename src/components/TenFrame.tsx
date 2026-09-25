@@ -18,7 +18,7 @@ type TenFrameProps = { visual: string };
  * dari kartu belajar: kotak 10 + counter bulat.
  */
 export function TenFrame({ visual }: TenFrameProps) {
-  const [, , dims, cells] = visual.split(":");
+  const [, dims, cells] = visual.split(":");
   const [rows, cols] = dims.split("x").map(Number);
   if (!rows || !cols || !cells || cells.length !== rows * cols) return null;
   const dotCount = [...cells].filter((c) => c === "r" || c === "b").length;

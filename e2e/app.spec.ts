@@ -12,6 +12,9 @@ test.describe("MathGame PWA", () => {
     // kartu soal muncul
     await expect(page.locator(".q-card")).toBeVisible();
 
+    // soal pertama = warm-up dari seed bank, selalu punya visual ten-frame
+    await expect(page.locator(".tenframe .dot.red").first()).toBeVisible();
+
     // jawab: pakai pilihan bila ada, kalau isian coba angka
     const choice = page.locator(".btn-choice").first();
     if (await choice.isVisible().catch(() => false)) {

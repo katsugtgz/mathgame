@@ -21,6 +21,9 @@ jobs:
         id: release
         with:
           release-type: node
+          # default token tidak boleh buat PR; butuh allow GitHub Actions to create pull requests di repo settings
+          # atau pasang PAT/GitHub App token di secret RELEASE_PLEASE_TOKEN
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}
 
   deploy:
     needs: release-please

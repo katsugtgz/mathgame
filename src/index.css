@@ -8,6 +8,7 @@
   --accent-ink: #78350f;
   --correct: #16a34a;
   --wrong: #dc2626;
+  --blue: #2563eb;
 
   font-family: "Baloo 2", system-ui, sans-serif;
   color: var(--ink);
@@ -33,8 +34,396 @@ body {
   padding: 1rem;
 }
 
+.app.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
 button {
   font: inherit;
   touch-action: manipulation; /* no double-tap zoom */
   min-height: 44px; /* touch target */
+}
+
+/* ---------- topbar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--accent-ink);
+}
+
+.counter {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--muted);
+  border-radius: 0.5rem;
+}
+
+/* ---------- stats ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  background: var(--surface);
+  border-radius: 1rem;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+.stat strong {
+  font-size: 1.15rem;
+}
+
+.stat span {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.stat svg {
+  color: var(--accent);
+}
+
+/* ---------- xp bar ---------- */
+
+.xpbar {
+  position: relative;
+  background: #fde68a;
+  border-radius: 999px;
+  height: 1.6rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.xpbar-fill {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.xpbar-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn-big {
+  font-size: 1.15rem;
+  padding: 1rem;
+}
+
+.btn-danger {
+  background: var(--wrong);
+  color: #fff;
+}
+
+.btn-choice {
+  background: var(--surface);
+  border: 2px solid #fde68a;
+  color: var(--ink);
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+
+.btn-choice:disabled {
+  cursor: default;
+}
+
+.choice-correct {
+  border-color: var(--correct);
+  background: #dcfce7;
+}
+
+.choice-reveal {
+  border-color: var(--correct);
+  background: #fef9c3;
+}
+
+.choice-dim {
+  opacity: 0.45;
+}
+
+.chip {
+  border: 2px solid #fde68a;
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chip-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------- cards / question ---------- */
+
+.card {
+  background: var(--surface);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+  margin-bottom: 1rem;
+}
+
+.q-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+
+.badge-concrete {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.badge-pictorial {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-abstract {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.prompt {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.75rem 0;
+}
+
+/* ---------- ten frame ---------- */
+
+.tenframe {
+  display: grid;
+  gap: 6px;
+  background: #fff7ed;
+  border: 2px solid #fde68a;
+  border-radius: 0.9rem;
+  padding: 0.7rem;
+  margin: 0 auto;
+  max-width: 20rem;
+}
+
+.tenframe .cell {
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 0.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  animation: pop 0.25s ease;
+}
+
+.dot.red {
+  background: radial-gradient(circle at 35% 35%, #f87171, #dc2626);
+}
+
+.dot.blue {
+  background: radial-gradient(circle at 35% 35%, #60a5fa, #2563eb);
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ---------- answer ---------- */
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.answer-row {
+  display: flex;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.answer-input {
+  flex: 1;
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid #fde68a;
+  border-radius: 1rem;
+  padding: 0.6rem;
+  min-height: 52px;
+}
+
+.answer-input:focus {
+  outline: 2px solid var(--accent);
+}
+
+/* ---------- feedback ---------- */
+
+.feedback {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+
+.fb-correct {
+  background: #dcfce7;
+  color: #14532d;
+}
+
+.fb-wrong {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.fb-hint {
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* ---------- done / mastery ---------- */
+
+.done-card {
+  text-align: center;
+}
+
+.done-trophy {
+  color: var(--accent);
+}
+
+.hint-text {
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.mastery-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fade 0.25s ease;
+}
+
+.mastery-card {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--accent-ink);
+  animation: pop 0.35s ease;
+}
+
+.mastery-card svg {
+  color: var(--accent);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---------- settings ---------- */
+
+h2 {
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
 }
